@@ -1,0 +1,149 @@
+\documentclass[10pt]{article}
+\setlength\headheight{14.5pt}
+\title{Homework}
+\author{Frederick Robinson}
+\date{7 April 2010}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{setspace}
+%\doublespacing
+\pagestyle{fancyplain}
+
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 331: Algebra}
+
+   \maketitle
+
+\setcounter{tocdepth}{2} 
+
+\tableofcontents
+
+\section{Chapter 13 Section 1}
+\subsection{Problem 1}
+
+\subsubsection{Question}
+Show that $p(x)=x^3+9x+6$ is irreducible in $\mathbb{Q}[x]$. Let $\theta$ be a root of $p(x)$. Find the inverse of $1+\theta$ in $\mathbb{Q}(\theta)$
+\subsubsection{Answer}
+I claim that $p(x)=x^3+9x+6$ is irreducible in $\mathbb{Q}[x]$.
+\begin{proof}
+Recall that Eisenstein's Criterion states that
+
+If $p$ is a prime in $\mathbb{Z}$ and $f(x)=x^n+a_{n-1}x^{n-1}+ \cdots +a_1 x+a_0$ with $n \geq1$ such that $p$ divides $a_i$ for all $0\leq i \leq n-1$ but $p^2$ does not divide $a_0$ then $f(x)$ is irreducible in both $\mathbb{Z}[x]$ and $\mathbb{Q}[x]$
+
+So, we can verify that $p=3$ satisfies this criterion, and therefore $p(x)$ is irreducible over $\mathbb{Q}[x]$ as desired.
+\end{proof}
+
+Now, we want to find polynomials $a(x)$ and $b(x)$ in $\mathbb{Q}[x]$ such that
+\[a(x)(x+1)+b(x)(x^3+9x+6)=1\]
+we can check that if we take $a(x)=(x^2-x+10)/4$ and $b(x)=-1/4$ we get
+\begin{eqnarray*}
+-\frac{1}{4}(-x^3+x^2-10x-x^2+x-10)-\frac{1}{4}(x^3+9x+6)&=&-\frac{1}{4}(-4)\\
+&=&1
+\end{eqnarray*}
+as desired. So, 
+\[\theta^{-1}=\frac{1}{4}(\theta^2-\theta+10).\]
+\subsection{Problem 3}
+
+\subsubsection{Question}
+Show that $x^3+x+1$ is irreducible over $\mathbb{F}_2$ and let $\theta$ be a root. Compute the powers of $\theta$ in $\mathbb{F}_2(\theta)$.
+\subsubsection{Answer}
+I claim that $f(x)=x^3+x+1$ is irreducible over $\mathbb{F}_2$.
+\begin{proof}
+If $x^3+x+1$ were reducible, at least one of its factors must be an order 1 polynomial. Therefore, if $f$ is reducible it has a root. However, we can check that $f$ has no roots. In particular $f(0)=1\neq0$ and $f(1)=1\neq0$. Therefore, $f$ is not reducible over $\mathbb{F}_2$.
+\end{proof}
+
+Since we know that $\theta^3+\theta+1=0$ in $\mathbb{F}_2(\theta)$ we have the relation $\theta^3=-\theta-1=\theta+1$. Now we can compute
+\[\begin{array}{ll|ll}
+order &power&order&power\\
+\hline
+0&1&4&\theta^2+\theta\\
+1&\theta&5&\theta^2+\theta+1\\
+2&\theta^2&6&\theta^2+1\\
+3&\theta+1&7&1\\
+\end{array}
+\]
+Since we have in general $\theta^k=\theta^{m\cdot 7}\theta^{k \mathrm{\ mod} 7}$ for some $m \in\mathbb{N}\cup\{0\}$ we can just write
+\begin{eqnarray*}
+\theta^k&=&\theta^{m\cdot 7}\theta^{k \mathrm{\ mod} 7}\\
+&=&\left(\theta^7\right)^m \cdot \theta^{k \mathrm{\ mod} 7}\\
+&=&1^m\cdot \theta^{k \mathrm{\ mod} 7}\\
+&=&\theta^{k \mathrm{\ mod} 7}\\
+\end{eqnarray*}
+So the above table completely describes all powers of $\theta$.
+\section{Chapter 13 Section 2}
+\subsection{Problem 3}
+\subsubsection{Question}
+Determine the minimal polynomial over $\mathbb{Q}$ for the element $1+i$.
+\subsubsection{Answer}
+The minimal polynomial over $\mathbb{Q}$ for $1+i$ is just 
+\[f(x)=x^2-2x+2\]
+\begin{proof}
+$f$ is monic and a member of $\mathbb{Q}[x]$ so it remains only to verify that it is irreducible and that it has $1+i$ as a root. First we'll check that $1+i$ is a root
+\begin{eqnarray*}(1+i)^2-2(1+i)+2&=&2i-2(1+i)+2 \\ &=&0.\end{eqnarray*}
+Now we must verify that $f$ is irreducible, however this is clear, by Eisenstein's criterion if we take $p=2$.
+\end{proof}
+
+\subsection{Problem 4}
+\subsubsection{Question}
+Determine the degree over $\mathbb{Q}$ of $2+\sqrt3$ and of $1+\sqrt[3]{2}+\sqrt[3]{4}$
+\subsubsection{Answer}
+The degree of $2+\sqrt3$ over $\mathbb{Q}$ is 2. 
+\begin{proof}
+We can verify that the minimal polynomial of $2+\sqrt3$ in $\mathbb{Q}$ is 
+\[f(x)=x^2-4x+1.\]
+First we observe that
+\begin{eqnarray*}(2+\sqrt3)^2-4(2+\sqrt3)+1&=& (7+4\sqrt3) -(8+4\sqrt3)+1 \\ &=& 0\end{eqnarray*}
+so, $2+\sqrt3$ is a root of $f$. So, if $f$ were reducible, one of its factors would necessarily be $x-(2+\sqrt3)$. Since $2+\sqrt3$ is not in $\mathbb{Q}$ $f$ must be irreducible. Thus, by Proposition 11 (Page 521), the degree of $2+\sqrt3$ is 2.
+\end{proof}
+The degree of $1+\sqrt[3]{2}+\sqrt[3]{4}$ over $\mathbb{Q}$ is 3. 
+\begin{proof}I claim that the minimal polynomial of $1+\sqrt[3]{2}+\sqrt[3]{4}$ is
+\[f(x)=x^3-3x^2-3x-1\]
+First check that
+\begin{eqnarray*}(1&+&\sqrt[3]{2}+\sqrt[3]{4})^3-3(1+\sqrt[3]{2}+\sqrt[3]{4})^2-3(1+\sqrt[3]{2}+\sqrt[3]{4})-1\\ &=&(19+15 2^{1/3}+12 2^{2/3}) -3(5+4 2^{1/3}+3 2^{2/3})-3(1+\sqrt[3]{2}+\sqrt[3]{4})-1\\ &=&0\end{eqnarray*}
+Now, observe that, were $f$ reducible, then $1+\sqrt[3]{2}+\sqrt[3]{4}$ would be a root of some polynomial with degree 2 or less. In particular that would imply that some nontrivial linear combination of $(1+\sqrt[3]{2}+\sqrt[3]{4})^2= 5+4 \sqrt[3]2+3 \sqrt[3]4$, $1+\sqrt[3]{2}+\sqrt[3]{4}$, and $1$ with rational coefficients is zero. However, such linear combinations are of form $(4a+b)\sqrt[3]2+(3a+b)\sqrt[3]4+(5a+b+c)$. However, as $\sqrt[3]2, \sqrt[3]4$ are not members of $\mathbb{Q}$ such linear combinations must have $4a+b=3a+b=5a+b+c=0$. There are no such linear combinations. So, $f$ must be irreducible. We can thus conclude that $1+\sqrt[3]{2}+\sqrt[3]{4}$ is of degree 3 over $\mathbb{Q}$.
+\end{proof}
+\subsection{Problem 5}
+\subsubsection{Question}
+Let $F=\mathbb{Q}(i)$. Prove that $x^3-2$ and $x^3-3$ are irreducible over $F$.
+\subsubsection{Answer}
+\begin{proof}First observe that since each of these polynomials has degree 3, they are both reducible if and only if they have roots. Furthermore, for any root of either of these equations, the field extension generated by that root over $\mathbb{Q}$ has degree 3 since both equations are irreducible in $\mathbb{Q}$ by Eisenstein. This is the degree of the minimal field extension which contains the roots. Thus, neither polynomial can have roots in $F$ which is of degree 2, and consequently neither is reducible over $F$.\end{proof}
+
+\subsection{Problem 7}
+\subsubsection{Question}
+Prove that $\mathbb{Q}(\sqrt2+\sqrt3)=\mathbb{Q}(\sqrt2,\sqrt3)$ [one inclusion is obvious, for the other consider $(\sqrt2+\sqrt3)^2$, etc.] Conclude that $[\mathbb{Q}(\sqrt2+\sqrt3):\mathbb{Q}]=4$. Find an irreducible polynomial satisfied by $\sqrt2+\sqrt3$
+\subsubsection{Answer}
+\begin{proof}
+Clearly $\mathbb{Q}(\sqrt2+\sqrt3) \subseteq \mathbb{Q}(\sqrt2,\sqrt3)$. To show the reverse inclusion it suffices to note that
+\[\frac{(\sqrt{2}+\sqrt{3})^3-9(\sqrt{2}+\sqrt{3})}{2}=\sqrt2 \quad\mathrm{and}\quad\frac{11(\sqrt{2}+\sqrt{3})-(\sqrt{2}+\sqrt{3})^3}{2}=\sqrt2.\]
+Since we can write the generators of $\mathbb{Q}(\sqrt2,\sqrt3)$ as members of $\mathbb{Q}(\sqrt2+\sqrt3)$ we must have  $\mathbb{Q}(\sqrt2,\sqrt3)\subseteq \mathbb{Q}(\sqrt2+\sqrt3)$ as desired.
+\end{proof}
+
+We must have $[\mathbb{Q}(\sqrt2+\sqrt3):\mathbb{Q}]=4$ since $[\mathbb{Q}(\sqrt2,\sqrt3):\mathbb{Q}]=4$ (minimal polynomials $x^2-2$ and $x^2-3$) and by the above proof  $\mathbb{Q}(\sqrt2+\sqrt3)=\mathbb{Q}(\sqrt2,\sqrt3)$.
+
+I claim that the polynomial
+\[f(x)=x^4-10x^2+1\]
+is irreducible and has $\sqrt2+\sqrt3$ as as root.
+\begin{proof}
+First we check 
+\begin{eqnarray*}(\sqrt2+\sqrt3)^4-10(\sqrt2+\sqrt3)^2+1&=& (49+20 \sqrt{6}) -10(5+2 \sqrt{6})+1 \\ &=& 0 \end{eqnarray*}
+This suffices also to show that $f$ is irreducible since if it were reducible, then we would have $[\mathbb{Q}(\sqrt2+\sqrt3):\mathbb{Q}]<4$ a contradiction.
+\end{proof}
+
+
+\subsection{Problem 8}
+\subsubsection{Question}
+Let $F$ be a field of characteristic $\neq 2$. Let $D_1$ and $D_2$ be elements of $F$, neither of which is a square in $F$. Prove that $F(\sqrt{D_1}, \sqrt{D_2}) $ is of degree 4 over $F$ if $D_1 D_2$ is not a square in $F$ and is of degree 2 over $F$ otherwise. When $F(\sqrt{D_1}, \sqrt{D_2})$ is of degree 4 over $F$ the field is called a \emph{biquadratic extension of $F$.}
+\subsubsection{Answer}
+\begin{proof}
+We have by Lemma 16 that $F(\sqrt{D_1}, \sqrt{D_2}) = (F(\sqrt{D_1}))( \sqrt{D_2}) $. Since we know that $D_1$ is not a square in $F$, it follows that $\sqrt{D_1}$ is of degree 2 in $F$. Now there are two cases. 
+
+If $D_1D_2$ is a square in $F$ then either $D_1=D_2 l^2$ or  $D_2=D_1 l^2$ for some $l \in F$. Hence, $\sqrt D_2 \in F(\sqrt{D_1})$ and $F(\sqrt{D_1}, \sqrt{D_2}) = (F(\sqrt{D_1}))( \sqrt{D_2}) =F(\sqrt{D_1})$ which in turn implies $[F(\sqrt{D_1}, \sqrt{D_2}):F]=2$.
+
+On the other hand, if $D_1 D_2$ is not a square in $F$ then  $\sqrt D_2 \notin F(\sqrt{D_1})$. Since $\sqrt{D_2}$ is of degree 2 in $F$ it is of at most degree 2 in $F(\sqrt{D_1})$. Thus, $\sqrt{D_2}$ is of degree exactly 2 in  $F(\sqrt{D_1})$ and $[F(\sqrt{D_1}, \sqrt{D_2}):F]=4$ as desired.
+\end{proof}
+
+
+\end{document}

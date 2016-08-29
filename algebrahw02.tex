@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\setlength\headheight{14.5pt}
+\title{Homework}
+\author{Frederick Robinson}
+\date{23 November 2009}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{setspace}
+\doublespacing
+\pagestyle{fancyplain}
+
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 331: Algebra}
+
+   \maketitle
+
+\setcounter{tocdepth}{2} 
+
+\tableofcontents
+
+\section{Chapter 5 Section 1}
+\subsection{Problem 1}
+
+\subsubsection{Question}
+
+Show that the center of a direct product is the direct product of the centers:
+\[Z(G_1 \times G_2 \times \cdots \times G_n) = Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n).\]
+Deduce that a direct product of groups is abelian if and only if each of the factors is abelian.
+
+\subsubsection{Answer}
+
+\begin{proof}We begin by showing that the center of the direct product is a  subset of the direct product of the centers. That is, we would like to show that for some arbitrary $g\in Z(G_1 \times G_2 \times \cdots \times G_n)$ that we have also $g \in  Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n)$.
+
+So let $g\in Z(G_1 \times G_2 \times \cdots \times G_n)$ and suppose towards a contradiction that $g \notin  Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n)$. So $g$ is of the form $(g_1,g_2, \dots, g_n)$ with at least one $g_i\notin Z(G_i)$. Thus since $g_i\notin Z(G_i)$ there must exist at least one $h\in G_i$ so that $h$ does not commute with $g_i$ (in $H_i$). 
+
+Since, by assumption $g\in Z(G_1 \times G_2 \times \cdots \times G_n)$ it must commute with every element of $G_1 \times G_2 \times \cdots \times G_n$. Thus, in particular it must commute with $(1,1,\dots,h,\dots,1)$ where $h$ is in the $ith$ place. Said another way, we must have $g(1,1,\dots,h,\dots,1)=(1,1,\dots,h,\dots,1)g$. However, observe that $g(1,1,\dots,h,\dots,1)=(1,1,\dots,h,\dots,1)g \Leftrightarrow (g_1,g_2, \dots,g_i h,\dots, g_n) = (g_1,g_2, \dots, h g_i,\dots, g_n) \Leftrightarrow g_i h = h g_i$. This is a contradiction, since $g_i$ does commute with $h$. 
+
+So we have shown that $Z(G_1 \times G_2 \times \cdots \times G_n) \subset Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n)$. It remains only to show the reverse inclusion: $ Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n) \subset Z(G_1 \times G_2 \times \cdots \times G_n) $. 
+
+Let $g=(g_1, \dots , g_n)$ with each $g_i \in Z(G_i)$ and let $h=(h_1, \dots , h_n)$ with each $h_i \in G_i$. But, $h g = (h_1, \dots , h_n) (g_1, \dots , g_n) = ( h_1 g_1, \dots , h_n g_n) = ( g_1 h_1, \dots , g_n h_n) = g h $. Thus, since our choice of $h$ was arbitrary $g$ commutes with each $h \in G_1 \times G_2 \times \cdots \times G_n$ and by definition $g \in Z(G_1 \times G_2 \times \cdots \times G_n) $. So we have shown the reverse inclusion: $ Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n) \subset Z(G_1 \times G_2 \times \cdots \times G_n) $.
+
+As desired we have shown that $Z(G_1 \times G_2 \times \cdots \times G_n) = Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n)$. \end{proof}
+
+Now we need only deduce that the direct product of groups is abelian if and only if each group in the direct product is abelian. This however follows directly from the previous proof. 
+
+\begin{proof}A group is abelian if and only if it is its own center. So we employ the above. A direct product of groups $G_1 \times G_2 \times \cdots \times G_n$ is abelian if and only if the direct product is its own center; $G_1 \times G_2 \times \cdots \times G_n=Z(G_1 \times G_2 \times \cdots \times G_n)$. Then, by he previous proof we observe that $Z(G_1 \times G_2 \times \cdots \times G_n) = Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n)$. 
+
+Hence, a direct product of groups $G_1 \times G_2 \times \cdots \times G_n$ is abelian if and only if $G_1 \times G_2 \times \cdots \times G_n = Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n)$. But this is what we wanted to prove, for if $Z(G_i) \neq G_i$ for some $1 \leq i \leq n$  $G_1 \times G_2 \times \cdots \times G_n \neq Z(G_1) \times Z(G_2) \times \cdots \times Z(G_n)$ a contradiction. This implies that $\forall i$ $Z(G_i)=G_i$ if and only if $G_1 \times G_2 \times \cdots \times G_n=Z(G_1 \times G_2 \times \cdots \times G_n)$ as desired.\end{proof}
+
+
+\section{Chapter 5 Section 2}
+
+\subsection{Problem 1}
+
+\subsubsection{Question}
+
+In each of parts (a) to (e) give the number of nonisomorphic abelian groups of the specified order --- do not list the groups: \textbf{(a)} order 100, \textbf{(b)} order 576, \textbf{(c)} order 1155, \textbf{(d)} order 42875, \textbf{(e)} order 2704.
+
+\subsubsection{Answer}
+\textbf{(a)}4. As $100=2^2 \cdot 5^2$ and 2 has 2 partitions the number of unique (up to isomorphism) abelian groups of order 100 is $2 \cdot 2 = 4$.
+
+
+\textbf{(b)}22. We have $576=2^6 \cdot 3^2$ so, since the 6 has 11 partitions and 2 has 2 the number of order 576 abelian groups which are unique up to isomorphism is $2 \cdot 11=22$.
+
+
+\textbf{(c)}1. Since $1155=3 \cdot 5 \cdot 7 \cdot 11$, by Corollary 4 up to isomorphism the only abelian group of order 1155 is the cyclic group of order 1155.
+
+
+\textbf{(d)}9. Again we observe that $42875 = 5^3 \cdot 7^3$ and that 3 has 3 partitions. Thus, the number of abelian groups of order 42875 which are unique up to isomorphism is $3 \cdot 3 = 9$.
+
+
+\textbf{(e)}10.  Since $2704 = 2^4 \cdot 13^2$ and the number of partitions of 4 is 5 we have that the number of abelian groups of order 2704 which are unique up to isomorphism is $5 \cdot 2 = 10$
+
+
+
+\subsection{Problem 4}
+
+\subsubsection{Question}
+
+In each of parts (a) to (d) determine which pairs of abelian groups listed are isomorphic (here the expression $\{a_1, a_2, \dots, a_k\}$ denotes the abelian group $Z_{a_1} \times Z_{a_2} \times \cdots \times Z_{a_k}$).
+
+\textbf{(a)} $\{4,9\}, \{6,6\}, \{8,3\}, \{9,4\}, \{6,4\}, \{64\}.$
+
+\textbf{(b)} $\{2^2,2 \cdot 3^2\}, \{2^2 \cdot 3 , 2 \cdot 3\}, \{2^3,3^2\}, \{2^2 \cdot 3^2, 2\}.$
+
+
+\textbf{(c)} $\{ 5^2 \cdot 7^2, 3^2 \cdot 5 \cdot 7 \}, \{ 3^2 \cdot 5^2 \cdot 7 , 5 \cdot 7^2 \}, \{ 3 \cdot 5^2, 7^2, 3 \cdot 5 \cdot 7 \}, \{ 5^2 \cdot 7 , 3^2 \cdot 5, 7^2 \}.$
+
+
+\textbf{(d)} $\{ 2^2 \cdot 5 \cdot 7 , 2^3 \cdot 5^3, 2 \cdot 5^2 \}, \{ 2^3 \cdot 5^3 \cdot 7, 2^3 \cdot 5^3 \}, \{ 2^2 , 2 \cdot 7, 2^3, 5^3, 5^3 \}, \{ 2 \cdot 5^3, 2^2 \cdot 5^3, 2^3, 7\}.$
+
+
+
+\subsubsection{Answer}
+We begin by observing that since groups may be divided into equivalence classes based on whether or not they are mutually ismorphic the above question is equivalent to the one of dividing the provided groups into isomorphism classes.
+
+\textbf{(a)} First it is easy to make the observation that groups of different cardinality cannot be isomorphic. Thus, at the very least we know that the two groups or order 24 as well as that of order 64 must be in different equivalence classes than the groups of order 36.
+
+For further insight we turn to the elementary divisors of each of the groups in our list. Since distinct lists of elementary divisors give nonisomorphic groups it will suffice to compute the lists of elementary divisors for each potentially isomorphic group and compare.
+
+
+So we follow the procedure outlined on [page 163] to obtain the elementary divisors for each group. Doing this reveals that the elementary divisors for the groups $\{9,4\}$ and $\{4,9\}$ are the same (namely 4 and 9) whereas the elementary divisors for the group $\{6,6\}$ are $\{2,2,3,3\}$. Furthermore the elementary divisors for the group $\{8,3\}$ are 8 and 3 whereas those corresponding to $\{6,4\}$ are 2, 3, and 4. Hence, we may divide the given groups into isomorphism classes as 
+
+\[\{4,9\}, \{9,4\}\]
+\[\{6,6\}\]
+\[\{8,3\}\]
+\[\{6,4\}\]
+\[\{64\}\]
+
+where each line represents a different isomorphism class.
+
+\textbf{(b)} To solve this problem we merely employ the technique outlined above. That is, we first compare the cardinality of each group, then compare elementary divisors. Doing so we see that the isomorphism classes are given by
+
+\[\{2^2,2 \cdot 3^2\},\{2^2 \cdot 3^2, 2\}\]
+\[\{2^2 \cdot 3 , 2 \cdot 3\}\]
+\[\{2^3,3^2\}\]
+
+\textbf{(c)} Again we proceed as described above and arrive at 
+
+\[\{ 5^2 \cdot 7^2, 3^2 \cdot 5 \cdot 7 \}, \{ 3^2 \cdot 5^2 \cdot 7 , 5 \cdot 7^2 \}, \{ 5^2 \cdot 7 , 3^2 \cdot 5, 7^2 \}\]
+\[\{ 3 \cdot 5^2, 7^2, 3 \cdot 5 \cdot 7 \}\]
+
+\textbf{(d)} Here we get
+
+\[\{ 2^2 \cdot 5 \cdot 7 , 2^3 \cdot 5^3, 2 \cdot 5^2 \}\]
+\[\{ 2^2 , 2 \cdot 7, 2^3, 5^3, 5^3 \}, \{ 2 \cdot 5^3, 2^2 \cdot 5^3, 2^3, 7\}\]
+\[\{ 2^3 \cdot 5^3 \cdot 7, 2^3 \cdot 5^3 \}\]
+
+
+\end{document}

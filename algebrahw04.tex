@@ -1,0 +1,180 @@
+\documentclass[12pt]{article}
+\setlength\headheight{14.5pt}
+\title{Homework}
+\author{Frederick Robinson\footnote{I worked with Dan Stevens on this assignment}}
+\date{19 January 2009}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{setspace}
+\doublespacing
+\pagestyle{fancyplain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 331: Algebra}
+
+   \maketitle
+
+\setcounter{tocdepth}{2} 
+
+\tableofcontents
+
+\section{Chapter 7 Section 2}
+\subsection{Problem 2}
+
+\subsubsection{Question}
+Let $p(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots+a_1x+a_0$ be an element of the polynomial ring $R[x]$. Prove that $p(x)$ is a zero divisor in $R[x]$ if and only if there is a nonzero $b\in R$ such that $b p (x)=0$.
+
+\subsubsection{Answer}
+We prove first $(\Rightarrow)$ that if there is a nonzero $b\in R$ such that $bp(x)=0$ then $p(x)$ is a zero divisor
+
+\begin{proof}
+This is just the definition of a zero divisor. 
+\end{proof}
+
+Now we prove the converse $(\Leftarrow)$, that is: if $p(x)$ is a zero divisor then there exists a nonzero $b \in R$ so that $b p (x) = 0$
+
+\begin{proof}
+Assume that $p(x)$ is a zero divisor. Then there exists some polynomial of minimal degree $g(x)=b_m x^m + b_{m-1}x^{m-1} + \cdots + b_1 x +  b_0$ such that has $g(x) p(x) = 0$. However, this implies in particular that the leading term  $b_m a_n = 0$. Also, we have now that $a_n(g(x)b(x))=0 \Rightarrow (a_n g(x))b(x)=0$. But now we have produced a polynomial of degree $n-1$ call it $a_n g(x)=g_{n-1}(x)$which has the property $g_{n-1}(x) p(x)=0$. This procedure may be repeated, eventually yielding $g_{0}(x)=b$, a polynomial of degree zero.
+\end{proof}
+
+
+
+\subsection{Problem 8}
+
+\subsubsection{Question}
+Let $S$ be any ring and let $n \geq 2$ be an integer. Prove that if $A$ is any strictly upper triangular matrix in $M_n(S)$ then $A^n=0$. (a strictly upper triangular matrix is one whose entries on and below the main diagonal are all zero).
+\subsubsection{Answer}
+Multiplication on a matrix ring is defined as 
+\[(ab)_{ij}=\sum_{k=1}^n a_{ik}b_{kj}.\]
+Also, a matrix is strictly upper triangular if it has 
+\[\{ (a_{ij})\ | \ a_{pq}=0\ \mathrm{whenever}\ p \geq q\}.\]
+For a matrix $A$ say that $[A]=m\geq 0$ if $a_{pq}=0$ for every $p\geq q - m$. It will suffice to prove that $[A B]=[A]+1$ for $[B]=0$, since $A^n = \underbrace {A \times \cdots \times A}_{\textrm{n\ times}} = \underbrace {((A \times A ) \times \cdots) \times A}_{\textrm{n\ times}}  \Rightarrow [A^n]=n \Rightarrow A^n=0$
+
+\begin{lemma}$[A B]=[A]+1$ for $[B]=0$\end{lemma}
+\begin{proof}
+Let $A$, $B$ be matrices with $[B]=0$ and $[A]=m\geq0$. 
+\[(ab)_{ij}=\sum_{k=1}^n a_{ik}b_{kj}= a_{i1}b_{1j}+a_{i 2}b_{2j}+\cdots+a_{i(n-1)}b_{(n-1)j}+a_{i n}b_{n j}\]
+and in particular
+\[a_{i1}b_{1j}+a_{i 2}b_{2j}+\cdots+a_{i(n-1)}b_{(n-1)j}+a_{i n}b_{n j}\]
+\[= 0 b_{1j}+0b_{2j}+\cdots+a_{i(i+m+1)}b_{(i+m+1)j}+\cdots+a_{i(j-1)}b_{(j-1)j}+\cdots+a_{i(n-1)}0+a_{i n}0\]
+\[= a_{i(i+m+1)}b_{(i+m+1)j}+\cdots+a_{i(j-1)}b_{(j-1)j}\]
+Hence, $a_{ij}=0 \Leftrightarrow i+m+1>j-1\Leftrightarrow i>j-m-2 \Leftrightarrow  i \geq j-m-1 \Leftrightarrow i \leq j - (m+1) \Rightarrow [AB]=m+1=[A]+1$ as desired\end{proof}
+
+Having proven this lemma we are done, by the previous argument.
+
+\section{Chapter 7 Section 3}
+\subsection{Problem 1}
+
+\subsubsection{Question}
+Prove that the rings $2 \mathbb{Z}$ and $3\mathbb{Z}$ are not isomorphic.
+\subsubsection{Answer}
+\begin{lemma}The only group isomorphisms on the additive groups $\varphi: 2\mathbb{Z} \to 3\mathbb{Z}$ is $\varphi{(x)}= \pm (3/2) x$  \end{lemma}
+
+\begin{proof}
+Any homomorphism $\varphi$ must take $\varphi{(0)} = 0$. For, $\varphi{(a)}=\varphi{(0+a)} \Rightarrow \varphi{(a)} = \varphi{(0)}+\varphi{(a)} \Rightarrow 0=\varphi{(0)}$. Moreover $\varphi{(n x)}=n \varphi{(x)}$ since $\varphi{(x)}=\varphi{(x)}$ and if $\varphi{((n-1)x)} = (n-1)\varphi{(x)}$ then $\varphi{(n x)} = \varphi{(x+(n-1)x)}=\varphi{(x)}+\varphi{((n-1)x)}=\varphi{(x)}+(n-1)\varphi{(x)}= n\varphi{(x})$. The only functions $\varphi : 2 \mathbb{Z} \to 3 \mathbb{Z}$ which satisfies this criterion, and are also injective are $\varphi{(x)}=\pm(3/2)x$ since if $\varphi{(2)}=\pm3$ then $\varphi{(x)}=\pm(3/2)x$ and if  $\varphi{(2)} = k \neq \pm3$ then $\varphi{(2n)} = \pm k n$ by the above and so there is no $2n \in 2 \mathbb{Z}$ which maps to $3m \in 3 \mathbb{Z}$ with $|3m| < |k|$.\end{proof}
+
+So, since a ring isomorphism must be a group isomorphism on the additive group the only potential candidates for ring isomorphism are  $\varphi: 2\mathbb{Z} \to 3\mathbb{Z}$ such that $\varphi{(x)}= \pm (3/2) x$. We can check however that $\varphi{(a b)} = \pm(3/2) (a b) \neq \varphi{(a)}\varphi{(b)} = (3/2)a(3/2)b$. In particular $\varphi{(4\cdot 6)} = \pm (3/2) (4 \cdot 6)= \pm36 \neq \varphi{(4)}\varphi{(6)} = (3/2)4(3/2)6=53$.
+\subsection{Problem 5}
+
+\subsubsection{Question}
+Describe all ring homomorphisms from the ring $\mathbb{Z} \times \mathbb{Z}$ to $\mathbb{Z}$. In each case describe the kernel and the image.
+\subsubsection{Answer}
+
+The projection homomorphism defined by $\varphi((x,y))=x$ is a homomorphism.
+\begin{proof}
+$\varphi((x,y)\cdot(a,b))=\varphi((x,y))\cdot\varphi((a,b))=x\cdot y$ and 
+$\varphi((x,y)+(a,b))=\varphi((x,y))+\varphi((a,b))=a+b$
+\end{proof}
+
+The proof that the other projection homomorphism is a homomorphism follows similarly. We claim that these, together with the trivial homomorphism are the only homomorphisms in this case.
+
+We note that  any (nontrivial) ring homomorphism must take $(1,1)\to1$. The proof is as follows: $\varphi((x,y))=\varphi{((x,y) \cdot (1,1))}=\varphi((x,y))\varphi((1,1))$ for any $(x,y)$ and if there is more than one unique $\varphi(x,y)$ in the image of $\mathbb{Z}\times\mathbb{Z} $ under $\varphi$ the only $\varphi((1,1)) \in \mathbb{Z}$ which has this property is $1$.
+
+We can show that every nontrivial ring homomorphism takes $(m,m)\to m$ since $\varphi(
+(m,m))=\varphi{(m\cdot(1,1))}=m\varphi{((1,1))}=m\cdot 1=m$.
+ 
+ These facts established we can prove that the only ring homomorphism from $\mathbb{Z}\times \mathbb{Z}$ to $\mathbb{Z}$ are the trivial homomorphism, and the two projection homomorphisms $(x,y)=x$ and $(x,y)=y$. 
+ 
+ \begin{proof}
+If $\varphi{((x,y))}=0$ with both $x$ and $y$ nonzero then $\varphi$ is the trivial homomorphism since $\varphi((x,y)(y,x))=\varphi(x,y)\varphi(y,x)=0=\varphi(xy,xy)$ and we have already established that $\varphi(m,m)=m$ unless $\varphi$ is the trivial homomorphism. 
+
+This however implies that (for nontrivial $\varphi$) either $\varphi((0,x))=0 $ for all $x$ or $\varphi((0,x))=x $ for all $x$. Since, suppose $\varphi((0,x))=y $ for some $x\neq y\neq 0$ then ,$\varphi((0,x)+(-y,-y))=0=\varphi(-y,x-y)$, but this means we are dealing with the trivial homomorphism. The same holds true for all points of the form $(0,y)$ for the same reason.
+
+Also, the set of $(x,0)$ goes to $\varphi((x,0))=x$ if and only if the set of $(0,y)$ goes to $0$ since again, $\varphi((x,0))+\varphi((-x,-x))=\varphi((x,0)+(-x,-x))=\varphi(0,-x)=0$. Similarly, the set of $(x,0)$ goes to $\varphi((x,0))=0$ if and only if the set of $(0,y)$ must go to $y$ since, $\varphi((x,0))+\varphi((-x,-x))=\varphi((x,0)+(-x,-x))=\varphi(0,-x)=-x$.
+
+So, the only two nontrivial ring homomorphisms in this case are the projection homomorphisms as claimed.\end{proof}
+  
+ The image is $\mathbb{Z}$ for both projection homomorphisms, and $0$ for the trivial homomorphism. The kernels of the projection homomorphisms are $\{(x,y)\ |\ x=0\}$ and $\{(x,y)\ |\ y=0\}$. The kernel of the trivial homomorphism is $\{(x,y)\ |\ x,y\in \mathbb{Z}\}$
+ 
+ 
+
+\subsection{Problem 6}
+
+
+\subsubsection{Question}
+Decide which of the following are ring homomorphisms from $M_2 (\mathbb{Z})$ to $\mathbb{Z}$:
+\begin{enumerate}
+\item $\left( \begin{array}{lr} a&b\\c&d \end{array}\right) \mapsto a \quad $ (projection onto the 1,1 entry)
+\item $\left( \begin{array}{lr} a&b\\c&d \end{array}\right) \mapsto a + d\quad $ (the \emph{trace} of the matrix)
+\item $\left( \begin{array}{lr} a&b\\c&d \end{array}\right) \mapsto a d - bc \quad $ (the \emph{determinant} of the matrix)
+\end{enumerate}
+\subsubsection{Answer}
+\begin{enumerate}
+\item $\left( \begin{array}{lr} a&b\\c&d \end{array}\right) \mapsto a$ is not a ring homomorphism 
+
+In particular $\left( \begin{array}{lr} 1&1\\1&1 \end{array}\right) \cdot \left( \begin{array}{lr} 1&1\\1&1 \end{array}\right) =\left( \begin{array}{lr} 2&2\\2&2 \end{array}\right) $ but $1\cdot 1 \neq 2$
+\item  $\left( \begin{array}{lr} a&b\\c&d \end{array}\right) \mapsto a + d$ is not a ring homomorphism.
+
+In particular $\left( \begin{array}{lr} 2&0\\1&1 \end{array}\right) \cdot \left( \begin{array}{lr} 2&0\\1&1 \end{array}\right) =\left( \begin{array}{lr} 4&0\\3&1 \end{array}\right) $ but $3\cdot 3 \neq 5$
+
+\item $\left( \begin{array}{lr} a&b\\c&d \end{array}\right) \mapsto a d - bc$ is not a ring homomorphism 
+
+In particular $\left( \begin{array}{lr} 1&2\\1&1 \end{array}\right) + \left( \begin{array}{lr} 1&1\\3&1 \end{array}\right) =\left( \begin{array}{lr} 1&3\\4&1 \end{array}\right) $ but $-1+ -2 \neq -11$
+\end{enumerate}
+\subsection{Problem 8}
+
+\subsubsection{Question}
+Decide which of the following are ideals of the ring $\mathbb{Z} \times \mathbb{Z}$:
+\begin{enumerate}
+\item $\{ (a,a)\ |\ a \in \mathbb{Z} \}$
+\item $\{ (2a,2b)\ |\ a,b \in \mathbb{Z} \}$
+\item $\{ (2a,0)\ |\ a \in \mathbb{Z} \}$
+\item $\{ (a,-a)\ |\ a \in \mathbb{Z} \}$
+\end{enumerate}
+\subsubsection{Answer}
+\begin{enumerate}
+\item $X=\{ (a,a)\ |\ a \in \mathbb{Z} \}$ is not an ideal of the ring $\mathbb{Z} \times \mathbb{Z}$ since $(1,1)\cdot(3,4)\notin X $
+\item $X=\{ (2a,2b)\ |\ a,b \in \mathbb{Z} \}$  is an ideal of the ring $\mathbb{Z} \times \mathbb{Z}$ since $(2a,2b)\cdot(x,y)=(2 (a x),2 (b y))\in X$
+\item $X=\{ (2a,0)\ |\ a \in \mathbb{Z} \}$ is an ideal of the ring $\mathbb{Z} \times \mathbb{Z}$ since $(2a,0)\cdot(x,y)=(2 a x,0)\in X$
+\item $X=\{ (a,-a)\ |\ a \in \mathbb{Z} \}$ is not an ideal of the ring $\mathbb{Z} \times \mathbb{Z}$ since $(-3,3)\cdot (-1,1) = (3,3)\notin X$
+\end{enumerate}
+
+\subsection{Problem 10}
+
+\subsubsection{Question}
+Decide which of the following are ideals of the ring $\mathbb{Z} [x]$:
+\begin{enumerate}
+\item the set of all polynomials whose constant term is a multiple of $3$
+\item the set of all polynomials whose coefficient of $x^2$ is a multiple of $3$
+\item the set of all polynomials whose constant term, coefficient of $x$ and coefficient of $x^2$ are zero
+\item $\mathbb{Z}[x^2]$ (i.e., the polynomials in which only even powers of $x$ appear)
+\item the set of polynomials whose coefficients sum to zero
+\item the set of polynomials $p(x)$ such that $p'(0)=0$, where $p'(x)$ is the usual first derivative of $p(x)$ with respect to $x$.
+\end{enumerate}
+
+\subsubsection{Answer}
+\begin{enumerate}
+\item the set of all polynomials whose constant term is a multiple of $3$ is an ideal of the ring $\mathbb{Z} [x]$ since the constant term of the product of two polynomials is the product of their constant terms, and for $x$, $y \in \mathbb{Z}$ we have $3x(y)=3(xy)$.
+\item The set $X$ of all polynomials whose coefficient of $x^2$ is a multiple of $3$ is not an ideal of the ring $\mathbb{Z} [x]$ since $3x^2+2x\in X$ but $(x)(3x^2+2x)=3x^3+2x^2 \notin X$
+\item The set $X$ of all polynomials whose constant term, coefficient of $x$ and coefficient of $x^2$ are zero  is an ideal of the ring $\mathbb{Z} [x]$ since the least nonzero coefficient of the product of two polynomials the $(n+m)\mathrm{th}$ term where $n$ and $m$ are the places of the least nonzero coefficients of the two polynomials. Therefore, the least nonzero coefficient of the product of a member of $X$ and a polynomial is at least the coefficient corresponding to $x^3$, and the product is a member of $X$.
+\item $\mathbb{Z}[x^2]$ (i.e., the polynomials in which only even powers of $x$ appear)  is not an ideal of the ring $\mathbb{Z} [x]$ since $x^2 \in \mathbb{Z}[x^2]$ and yet $(x^2)x = x^3 \notin \mathbb{Z}[x^2]$
+\item The set of polynomials whose coefficients sum to zero  is an ideal of the ring $\mathbb{Z} [x]$ since the sum of the coefficients of the product of two polynomials is the sum of the product of each individual coefficient in one of the polynomials with the sum of all the coefficients of the other polynomial. That is, if the coefficients are $g_1, \dots, g_n$ and $f_1,\dots,f_m$ then the sum of the coefficients of the product is $\sum_{k=1}^n g_k \left( \sum_{l=1}^m f_l\right)=\sum_{k=1}^m f_k \left( \sum_{l=1}^n g_l\right)$. So, if al polynomial has coefficients which sum to zero then the product of that polynomial with any other will have coefficients which sum to zero.
+\item The set $X$ of polynomials $p(x)$ such that $p'(0)=0$, where $p'(x)$ is the usual first derivative of $p(x)$ with respect to $x$   is not an ideal of the ring $\mathbb{Z} [x]$ since $x^2+3 \in X$ but $x(x^2+3)=x^3+3x\notin X$.
+\end{enumerate}
+
+
+\end{document}

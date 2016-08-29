@@ -1,0 +1,121 @@
+\documentclass[10pt]{article}
+\setlength\headheight{14.5pt}
+\title{Homework}
+\author{Frederick Robinson}
+\date{24 May 2010}
+\usepackage{amsfonts}
+\usepackage{mathabx}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{setspace}
+%\doublespacing
+\pagestyle{fancyplain}
+
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 331: Algebra}
+
+   \maketitle
+
+\setcounter{tocdepth}{2} 
+
+%\tableofcontents
+
+\section{Chapter 14 Section 4}
+\subsection{Problem 1}
+\subsubsection{Question}
+Determine the Galois closure of the field $\mathbb{Q}\left( \sqrt{1+\sqrt2} \right)$ over $\mathbb{Q}$.
+\subsubsection{Answer}
+The Galois closure is merely the splitting field for the minimal polynomial of $ \sqrt{1+\sqrt2}$ over $\mathbb{Q}$. The minimal polynomial is just $f(x)= (x^2 -1)^2 -2 = x^4-2x^2-1$. So, since the roots of this polynomial are 
+\[ x= -i \sqrt{-1+\sqrt{2}}\quad x= i \sqrt{-1+\sqrt{2}}\quad x= -\sqrt{1+\sqrt{2}}\quad x= \sqrt{1+\sqrt{2}}\]
+the splitting field (and therefore the Galois closure) is just $\mathbb{Q}(i, \sqrt{1+\sqrt 2})$
+
+\subsection{Problem 2}
+\subsubsection{Question}
+Find a primitive generator for $\mathbb{Q}(\sqrt2,\sqrt3,\sqrt5)$ over $\mathbb{Q}$.
+\subsubsection{Answer}
+A primitive generator for the given extension is $\alpha=\sqrt2 + \sqrt 3  + \sqrt 5$. 
+\begin{proof}This is a member of the given extension, so clearly $\mathbb{Q}(\alpha) \subseteq \mathbb{Q}(\sqrt2,\sqrt3,\sqrt5) $. Moreover, $\alpha$ is not fixed by any of the 8 Galois automorphisms of $\mathbb{Q}(\sqrt2,\sqrt3,\sqrt5) $ and therefore $\mathbb{Q}(\sqrt2,\sqrt3,\sqrt5) \subseteq \mathbb{Q}(\alpha)$ which gives us equality, as claimed.\end{proof}
+
+\subsection{Problem 3}
+\subsubsection{Question}
+Let $F$ be a field contained in the ring of $n \times n$ matrices over $\mathbb{Q}$. Prove that $[F : \mathbb{Q}] \leq n$. (Note that, by Exercise 19 of Section 13.2, the ring of $n \times n$ matrices over $\mathbb{Q}$ does contain fields of degree $n$ over $\mathbb{Q}$.)
+\subsubsection{Answer}
+\begin{proof}
+As $\mathbb{Q}$ is of characteristic 0, $F$ is a simple extension over $\mathbb{Q}$ and $F= \mathbb{Q}(\theta)$ for some primitive element $\theta$. Let $m(x)$ be the minimal polynomial of $\theta$ over $\mathbb{Q}$ and note that $[F:\mathbb{Q}] = \deg m(x)$.
+
+Since $\theta$ is an $n \times n$ matrix, its characteristic polynomial $f(x)$ is of degree $n$, and $f(\theta)=0$. So $\deg m(x) =[F: \mathbb{Q}] \leq n$, and $f(\theta)=0$. So $\deg m(x) = [F: \mathbb{Q}] \leq n$, or else there would be a polynoimal of lesser degree ($f(x)$) which had $\theta$ as a root.
+\end{proof}
+
+\section{Chapter 14 Section 5}
+\subsection{Problem 1}
+\subsubsection{Question}
+Determine the minimal polynomials satisfied by the primitive generators given in the text for the subfields of $\mathbb{Q}(\zeta_{13})$
+\subsubsection{Answer}
+One can easily verify that the minimal polynomials are (in order of degree)
+\[\begin{array}{r|l}
+\mathrm{Generator} & \mathrm{Polynomial} \\
+\hline
+\zeta& 1+x+x^2+x^3+x^4+x^5+x^6\\
+&+x^7+x^8+x^9+x^{10}+x^{11}+x^{12} \\
+\zeta+\zeta^{-1}&-1+3 x+6 x^2-4 x^3-5 x^4+x^5+x^6  \\
+\zeta+\zeta^3+\zeta^9 & 3-4 x+2 x^2+x^3+x^4 \\
+\zeta+\zeta^5+\zeta^8+\zeta^{12}& 1-4 x+x^2+x^3 \\
+\zeta+\zeta^3+\zeta^4+\zeta^9+\zeta^{10}+\zeta^{12} & -3+x+x^2 \\
+\end{array}\]
+
+\subsection{Problem 3}
+\subsubsection{Question}
+Determine the quadratic equation satisfied by the period $\alpha = \zeta_5+\zeta_5^{-1}$ of the $5^{\mathrm{th}}$ root of unity $\zeta_5$. Determine the quadratic equation satisfied by $\zeta_5$ over $\mathbb{Q}(\alpha)$ and use this to explicitly solve for the $5^\mathrm{th}$ root of unity.
+\subsubsection{Answer}
+It is easy to check that $\alpha$ satisfies the quadratic $x^2+x-1$ and that the quadratic $x^2-\alpha x +1$ is satisfied by $\zeta_5$. Now, by the quadratic equation we have one of
+\[\alpha = \frac{-1 \pm \sqrt{1+4}}{2} .\]
+However, since $\alpha$ is positive ($\zeta_5$ and $\zeta_5^{-1}$ both have positive real part) we must have in particular that
+\[\alpha = \frac{-1 + \sqrt{5}}{2} .\]
+By the quadratic equation again we get one of
+\[ \zeta_5 = \frac{\alpha \pm \sqrt{\alpha^2 - 4}}{2} .\]
+Since the imaginary component of $\zeta_5$ is positive we know that 
+\[ \zeta_5 = \frac{\alpha + \sqrt{\alpha^2 - 4}}{2} .\]
+Substituting, expanding we have
+\[\zeta_5 =-\frac{1}{4}+\frac{\sqrt{5}}{4}+\frac{1}{2} i \sqrt{4-\frac{1}{4} \left(-1+\sqrt{5}\right)^2}.\]
+
+
+\subsection{Problem 5}
+\subsubsection{Question}
+Let $p$ be a prime and let $\epsilon_1,\epsilon_2,\dots,\epsilon_{p-1}$ denote the primitive $p^\mathrm{th}$ roots of unity. Set $p_n=\epsilon_1^n+\epsilon_2^n+\cdots+\epsilon_{p-1}^n$, the sum of the $n^\mathrm{th}$ powers of the $\epsilon_i$. Prove that $p_n=-1$ if $p$ does not divide $n$ and that $p_n=p-1$ if $p$ does divide $n$. [One approach: $p_1=-1$ from $\Phi_p(x)$; show that $p_n$ is a Galois conjugate of $p_1$ for $p$ not dividing $n$, hence is also $-1$.]
+\subsubsection{Answer}
+\begin{proof}
+Since $\Phi_p = x^{p-1}+ x^{p-2} + \cdots +1$ we have $\Phi(\zeta_p) =0= p_1+1 \Rightarrow p_1=-1$. The members of the cyclotomic Galois group are defined by $\sigma_a(\zeta_p)= \zeta_p^a$ with $p$ not dividing $a$. Thus, $\sigma_a(p_1) = p_a$ and so for $p$ not dividing $a$ we have $p_a=-1$ as well.
+
+If $p$ does divide $a$ then $\epsilon_i^a = (\epsilon_i^p)^m=1^m=1 \Rightarrow p_a = p-1$.
+\end{proof}
+
+\subsection{Problem 7}
+\subsubsection{Question}
+Show that complex conjugation restricts to the automorphism $\sigma_{-1} \in \mathrm{Gal}(\mathbb{Q}(\zeta_n)/\mathbb{Q})$ of the cyclotomic field of $n^\mathrm{th}$ roots of unity. Show that the field $K^+=\mathbb{Q}(\zeta_n+\zeta_n^{-1})$ is the subfield of real elements in $K=\mathbb{Q}(\zeta_n)$, called the \emph{maximal real subfield of $K$.}
+\subsubsection{Answer}
+The complex conjugate of a root of unity $\zeta_n$ is just $\zeta_{-n}$. Therefore, $\sigma_{-1}$ takes members of $\mathbb{Q}(\zeta_n)$ to their complex conjugates.
+
+An element of some field is real if and only if it is fixed by complex conjugation. Thus, in particular, the subfield of all real elements of $\mathbb{Q}(\zeta_n)$ is precisely that subfield which is fixed by complex conjugation, or equivalently, by $\sigma_{-1}$. So, $K^+$ is the subfield which is fixed by the subgroup of the Galois group $H = \{\sigma_{-1}, 1\}$. 
+
+One such element is $\zeta_n+\zeta_n^{-1} = \alpha$. Now, observe that for every automorphism $\sigma_a \notin H$ we have $\sigma_a(\alpha) = \zeta_n^a + \zeta_n^{-a} \neq \alpha$ (This lack of equality follows from the fact that the real part of such a power of $\zeta_n$ is not the same as the real part of $\zeta_n$). Hence, $\alpha$ generates the entire fixed field.
+
+
+\subsection{Problem 12}
+\subsubsection{Question}
+Let $\sigma_p$ denote the Frobenius automorphism $x \mapsto x^p$ of the finite field $\mathbb{F}_q$ of $q =p^n$ elements. Viewing $\mathbb{F}_q$ as a vector space $V$ of dimension $n$ over $\mathbb{F}_p$ we can consider $\sigma_p$ as a linear transformation of $V$ to $V$. Determine the characteristic polynomial of $\sigma_p$ and prove that the linear transformation $\sigma_p$ is diagonalizable over $\mathbb{F}_p$ if and only if $n$ divides $p-1$, and is diagonalizable over the algebraic closure of $\mathbb{F}_p$ if and only if $(n,p)=1$.
+\subsubsection{Answer}
+Since for all $x \in \mathbb{F}_{p^n}$, $x^{p^n}-x=0$ we have that $\sigma_p$ satisfies $x^n-1$. Since this is a degree $n$ polynomial it is the characteristic polynomial. 
+
+Recall  that $\sigma_p$ is diagonalizable if and only if the characteristic polynomial splits completely in $\mathbb{F}_p$. 
+
+\begin{proof} Observe that $\sigma_p$ is diagonalizable if and only if $\mathbb{F}_p$ contains all the $n$th roots of unity, if and only if $\mathbb{F}^\times_p$ contains a copy of $\mathbb{Z}/n\mathbb{Z}$. By fundamental theorem of cyclic groups this is the case if and only if $n|(p-1)$ .
+
+The linear transformation is diagonalizable over the closure of $\mathbb{F}_p$ if and only if $x^n-1$ is separable. This is true if and only if it is relatively prime to the derivative $nx^{n-1}$ but this is in turn true if and only if $nx^{n-1}\neq 0 \Leftrightarrow p\notdivides n$.\end{proof}
+
+
+
+
+
+\end{document}

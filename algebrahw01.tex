@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+\setlength\headheight{14.5pt}
+\title{Homework}
+\author{Frederick Robinson}
+\date{23 November 2009}
+
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{setspace}
+
+\doublespacing
+
+\setcounter{tocdepth}{2} 
+\pagestyle{fancyplain}
+
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 331: Algebra}
+
+\maketitle
+
+
+\tableofcontents
+
+\section{Chapter 4 Section 5}
+
+\subsection{Problem 6}
+
+\subsubsection{Question}
+
+Exhibit all Sylow 3-subgroups of $A_4$ and all Sylow 3-subgroups of $S_4$
+
+\subsubsection{Answer}
+
+Since $A_4$ is of order $\frac{4!}{2}=12$ and $12=2^2 \cdot 3$ a Sylow 3-subgroup of this group will be of order 3. We then know that these groups must by cyclic since they are of prime order.  Since they are cyclic and of prime order they must share only the identity element. For, assume not, then they must share some non-identity element, but each element of a cyclic group of prime order generates the entire group. 
+
+Also by Sylow Theorem 3 we have that there must be $1 + 3 n$ of them for $n\in\mathbb{N}$. So, taken together the $m$ Sylow 3-subgroups of $A_4$ have $2m+1 \leq 12$ elements. Taking into account the constraint mentioned above, there may be $1$, or $4$ Sylow 3-subgroups of $A_4$.
+
+Let's list each of the elements of $A_4$. These are all of the even memebers of $S_4$. That is
+\[(1), (1 2 3), (3 2 1), (1 2 4), (4 2 1), (1 3 4), (4 3 1), (2 3 4), (4 3 2)\]
+\[(1 2)(3 4), (1 4)(2 3),(1 3)(2 4)\]
+but note that the subgroups consisting of a 3-cycle, its inverse and the identity are sylow 3-subgroups. As predicted there are 4 such subgroups namely
+\[(1 2 3), (3 2 1), (1)\]
+\[(1 2 4), (4 2 1), (1)\]
+\[(1 3 4), (4 3 1), (1)\]
+\[(2 3 4), (4 3 2), (1)\]
+
+Now we will exhibit all Sylow 3-subgroups of $S_4$. In this case the order of $S_4$ is $|S_4|=4!=24$ and $24=2^3 \cdot 3$ so again Sylow 3-subgroups will be of order 3. We can observer similarly to above that the number of Sylow 3-subgroups of $S_4$ $m$ must have $2m+1 \leq 24$ and that $m=3n+1$ for some $n\in\mathbb{N}$.
+
+So $m\in \{1,4,7,10\}$, but since $A_4 < S_4$ each Sylow 3-subgroup of $A_4$ must also be one of $S_4$ so  $m\in \{4,7,10\}$. So we are looking for $0,3$ or $6$ more Sylow 3-subgroups of $S_4$. Since there are only $3$ elements in a Sylow 3-subgroup of $S_4$ we are looking for elements $x\in S_4$ that have $x \neq x^{-1}$ as these will form subgroups of the form $\{x, x^{-1}, 1\}$. So, this immediately eliminates from consideration all 2-cycles. We already have the 3-cycles from above. All 4-cycles are of this form, however since $x^2 \neq x^{-1}$ they cannot generate 3 member subgroups.
+
+Since we have checked all possible candidates we are done. Happily we have 4 Sylow 3-groups which was one of the possibilities we arrived at above.
+
+\subsection{Problem 7}
+
+\subsubsection{Question}
+
+Exhibit all Sylow 2-subgroups of $S_4$ and find elements of $S_4$ which conjugate one of these into each of the others.
+
+
+\subsubsection{Answer}
+
+
+So, we note that $|S_4|=4!=24=2^3 \cdot 3$ so Sylow 2-subgroups must have order $2^3=8$. Now let's list all of the elements of $S_4$ for convenience
+\[(1), (1 2), (1 3), (1 4), (2 3), (2 4), (3 4)\]
+\[(1 2)(3 4), (1 4)(2 3),(1 3)(2 4)\]
+\[(1 2 3), (3 2 1), (1 2 4), (4 2 1), (1 3 4), (4 3 1), (2 3 4), (4 3 2)\]
+\[(1 2 3 4), (4 3 2 1), (1 2 4 3), (3 4 2 1), (1 3 2 4), (4 2 3 1)\]
+
+The Sylow 2-subgroups of $S_4$ are dihedral groups of order 8. I will exhibit one explicitly
+\[(1),(1 2 3 4)=r,(1 3)(2 4)=r^2, (4 3 2 1)=r^3\]
+\[(2 4)=s,(1 4)(2 3)=sr,(13)=sr^2,(1 2)(3 4)=sr^3\]
+This is the dihedral subgroup of $S_4$ corresponding to labeling the vertices of a square in the order $1, 2, 3, 4$. The other two such subgroups may be obtained by labeling the vertices differently. There are only 3 such labelings up to symmetry. We may fix one of the labels, then there are only 6 possible labeling. Further examination reveals that 3 of these are just symmetries of the others. These labelings are $(1 2 3 4), (1 3 4 2), (1 4 2 3)$.
+
+Now we need to verify that there are no other Sylow 2-subgroups. of $S_4$, but Example 5 Page 142 states that every Sylow 2-subgroup is isomorphic to $D_8$
+
+So now let's demonstrate the conjugacy relationship between Sylow p-subgroups as requested. Conjugating the subgroup demonstrated above by $(1 3 2 4)$ yields
+\[(1), (2 3 1 4), (1 2)(3 4), (1 3 2 4)\]
+\[(1 2), (1 4)(2 3), (3 4), (1 3) (2 4)\]
+but this subgroup is isomorphic to $D_8$. In particular it is the group of symmetries of a square with vertices labeled $(1 4 2 3)$.
+
+Similarly, conjugating the first subgroup by $(1 2)$ we get
+\[(1), (1 3 4 2), (1 4)(2 3), (1 2 4 3)\]
+\[(1 4), (1 3)(2 4), (2 3), (1 2)(3 4)\]
+which is again isomorphic to $D_8$, and in particular the symmetries of the square labeled as $(1 3 4 2)$.
+
+\subsection{Problem 30}
+
+\subsubsection{Question}
+
+How many elements of order 7 must there be in a simple group of order 168?
+
+
+\subsubsection{Answer}
+
+Let $|G|=168$ with $|G|$ simple. We begin by noting that since $168=2^3 \cdot 3 \cdot 7$ a subgroup of order  $7$ is a Sylow 7-subgroup. Moreover, each element of order 7 must belong to a (unique since 7 is prime) corresponding cyclic subgroup of order 7. Also, since 7 is prime we have the converse, namely: If $x\in H$ for $H<G$, $|H|=7$ then either $|x|=7$ or $x=e_G$. Thus it suffices to establish the number of Sylow 7-subgroups of $G$.
+
+By Sylow Theorem 3, if $m$ is the number of Sylow 7-subgroups of $G$, $m=7n+1$ for $n\in \mathbb{N} \cup \{0\}$. This together with fact (established in Problem 6) that subgroups of prime order may share only the identity element lets us narrow down the possibilities for $m$. Since each Sylow 7-group must have only the identity in common we have $6m+1\leq |G|= 168 \Rightarrow m \leq 27$.
+
+So, in particular we must have $m\in \{1, 8, 15, 22 \}$. We may still further narrow the possibilities for $m$ since Sylow Theorem 3 also states that $m|k$ where $k=\frac{|G|}{p}$. So, in this case we know that $m|24$ since $\frac{168}{7}=24$. Now, we have $m\in\{1,8\}$. However, we notice that if $m=1$ the index of the normalizer is also $1$ but this cannot be because it would mean that $G$ was not simple, contradicting our assumption. Therefore, if $G$ is a simple group of order $168$ it must have exactly $8$ Sylow 7-subgroups.
+
+\subsection{Problem 32}
+
+\subsubsection{Question}
+Let P be a Sylow p-subgroup of $H$ and let $H$ be a subgroup of K. If $P \unlhd H$ and $H \unlhd K$, prove that $P$ is normal in $K$. Deduce that if $P\in Syl_p(G)$ and $H=N_G(P)$, then $N_G(H)=H$ (in words: \emph{normalizers of Sylow p-subgroups are self-normalizing}).
+
+\subsubsection{Answer}
+
+\begin{proof}Any two Sylow p-subgroups of H must be conjugate by Sylow Theorem 2. However, $P \unlhd H$ so the only conjugate of $P$ by elements of $H$ is $P$. Thus, $P$ is the unique Sylow p-subgroup of $H$.
+
+Since $H \unlhd K$ we have that $kPk^{-1} < H$ for $k\in K$ and in particular $kPk^{-1}$ must be a Sylow p-subgroup of $H$ since conjugation preserves cardinality. However, we have just established that $P$ is the unique Sylow p-subgroup of $H$. Thus, $kPk^{-1} = P$ for any $k\in K$. So we have $P \unlhd K$ as desired.\end{proof}
+
+So, let $H=N_G(P)$ for $P$ a Sylow p-subgroup of $G$. Then suppose towards a contradiction that $H$ is not self normalizing. Then there exists some $H<K<G$ with $K\neq H$ so that $K=N_G(H)$. Then $P\unlhd H \unlhd K$. So, by the previous part $P \unlhd K$ but this is a contradiction since we claimed that $H=N_G(P)$.
+
+\end{document}

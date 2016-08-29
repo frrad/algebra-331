@@ -1,0 +1,110 @@
+\documentclass[10pt]{article}
+\setlength\headheight{14.5pt}
+\title{Homework}
+\author{Frederick Robinson}
+\date{3 May 2010}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{setspace}
+%\doublespacing
+\pagestyle{fancyplain}
+
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 331: Algebra}
+
+   \maketitle
+
+\setcounter{tocdepth}{2} 
+
+%\tableofcontents
+
+\section{Chapter 13 Section 5}
+\subsection{Problem 5}
+\subsubsection{Question}
+For any prime $p$ and any nonzero $a \in \mathbb{F}_p$ prove that $x^p-x+a$ is irreducible and separable over $\mathbb{F}_p$. [For the irreducibility: One approach --- prove first that if $\alpha$ is a root then $\alpha+1$ is also a root. Another approach --- suppose it's reducible and compute derivatives.]
+\subsubsection{Answer}
+By Proposition 37 it suffices to show that $x^p-x+a$ is irreducible over $\mathbb{F}_p$
+\begin{proof}
+Let $\alpha$ be a root of $f(x) = x^p-x+a$. Now compute 
+\begin{eqnarray*}f(\alpha+1)&=&(\alpha+1)^p-(\alpha+1)+a \\ &=&\alpha^p+1-\alpha-1+a \\ &=&\alpha^p-\alpha+a.\end{eqnarray*}
+So, for any $\alpha$ a root of $f$, $\alpha+1$ is also a root and by induction each $\alpha' \in \mathbb{F}_p$ is a root of $f$. In particular, $f(0)=0^p-0+a=0 \Rightarrow a=0$ a contradiction. Therefore $f$ has no roots.
+
+Suppose that $f$ is reducible as 
+\[f=g_1\cdot g_2 \cdots g_n\]
+There exists some extension of $\mathbb{F}_p$ which contains a root $\beta$ of $f$. However, by the previous proof each $\beta+m$ is also a factor for $m \in \mathbb{F}_p$. Hence, our extension field is a splitting field. Since our choice of $\beta$ was arbitrary we have $deg (g_i) = [\mathbb{F}_p(\beta):\mathbb{F}_p]$ for any $i$. Since $f$ has no roots  and 
+\[\prod_{1 \leq i \leq n} deg(g_i)=p\]
+for $p$ prime $f$ must be irreducible as claimed.
+\end{proof}
+
+\subsection{Problem 7}
+\subsubsection{Question}
+Suppose $K$ is a field of characteristic $p$ which is not a perfect field: $K \neq K^p$. Prove there exist irreducible inseparable polynomials over $K$. Conclude that there exists inseparable finite extensions of $K$.
+\subsubsection{Answer}
+Since $K \neq K^p$ there exists some $\beta \in K$ such that $x^p \neq \beta$ for all $x \in K$. The polynomial $f(x) = x^p -\beta$ is irreducible and inseparable.
+\begin{proof}
+Since $D_x (f) = 0 $ we have by Proposition 33 that $f$ is inseparable. Moreover, $f$ is irreducible by Eisenstein (Section 9.4 Example 5).
+\end{proof}
+
+The finite extension of $K$ obtained by adjoining the roots of $f$ is therefore inseparable.
+
+
+\section{Chapter 13 Section 6}
+\subsection{Problem 1}
+\subsubsection{Question}
+Suppose $m$ and $n$ a re relatively prime positive integers. Let $\zeta_m$ be a primitive $m^\mathrm{th}$ root of unity and let $\zeta_\mathrm{n}$ be a primitive $n^\mathrm{th}$ root of unity. Prove that $\zeta_m \zeta_n$ is a primitive $mn^\mathrm{th}$ root of unity.
+\subsubsection{Answer}
+\begin{proof} Since $m$, $n$ are relatively prime $(\zeta_m \zeta_n)^l = 1\Rightarrow (\zeta_m)^l =1$ and $ (\zeta_n)^l=1$ moreover, LCM($m,n$)=$mn$. \end{proof}
+
+\subsection{Problem 2}
+\subsubsection{Question}
+Let $\zeta_n$ be a primitive $n^\mathrm{th}$ root of unity and let $d$ be a divisor of $n$. Prove that $\zeta_\mathrm{n}^\mathrm{d}$ is a primitive $(n/d)^\mathrm{th}$ root of unity.
+\subsubsection{Answer}
+\begin{proof}
+Note that $\zeta_\mathrm{n}^\mathrm{d}$ is a $(n/d)^\mathrm{th}$ root of unity since $(\zeta_\mathrm{n}^\mathrm{d} )^{n/d}=1$. Moreover if there were some $l=m/d< (n/d)$ such that  $(\zeta_\mathrm{n}^\mathrm{d})^l =1 $ we would have $\zeta_n^m=1$ for $m<n$, a contradiction. Hence $\zeta_\mathrm{n}^\mathrm{d}$ is primitive as claimed.\end{proof}
+
+\subsection{Problem 3}
+\subsubsection{Question}
+Prove that if a field contains the $n^\mathrm{th}$ roots of unity for $n$ odd then it also contains the $2n^\mathrm{th}$ roots of unity.
+\subsubsection{Answer}
+\begin{proof}
+By definition of the Euler $\varphi$ function the cyclotomic polynomials for $\Phi_n$ and $\Phi_{2n}$ have the same degree. Moreover, since an $n^{\mathrm{th}}$ root of unity is also a $2n^{\mathrm{th}}$ root of unity the extension $n$th cyclotomic extension is a subfield of the $2n$th cyclotomic extension. Thus, both cyclotomic extensions are the same. In particular, we may conclude that any field containing the $n$th roots of unity, and therefore the $n$th cyclotomic extension, contains the $2n$th cyclotomic extension, and consequently the $2n$th roots of unity. 
+\end{proof}
+
+\subsection{Problem 9}
+\subsubsection{Question}
+Suppose $A$ is an $n \times n$ matrix over $\mathbb{C}$ for which $A^k=I$ for some integer $k \geq 1$. Show that $A$ can be diagonalized. Show that the matrix $A = \left( \begin{array}{cc} 1 & \alpha \\ 0 & 1 \end{array} \right)$ where $\alpha$ is an element of a field of characteristic $p$ satisfies $A^p=I$ and cannot be diagonalized if $\alpha \neq 0$.
+\subsubsection{Answer}
+Recall that by Proposition 25 of 12.3 
+``If $A$ is an $n \times n$ matrix with entries from $F$ and $F$ contains all of the eigenvalues of $A$, then $A$ is similar to a diagonal matrix over $F$ if and only if the minimal polynomial of $A$ has no repeated roots."
+\begin{proof}
+Since $\mathbb{C}$ is algebraically closed it contains all eigenvalues of $A$. The minimal polynomial for $A$ is just $\Phi_k$ since by construction $A^k = I$. Since $\Phi_k$ is separable $A$ is diagonalizable.
+\end{proof}
+It is easy to check that 
+\[A ^n = \left( \begin{array}{cc} 1 & n \alpha \\ 0 & 1 \end{array} \right) \]
+So, over a field of characteristic $p$ we have $A^p=I$. Moreover, given $\alpha \neq 0 $, $A$ cannot be diagonalized since in this field $\Phi_p$ is inseparable.
+
+\subsection{Problem 10}
+\subsubsection{Question}
+Let $\varphi$ denote the Frobenius map $x \mapsto x^p$ on the finite field $\mathbb{F}_{p^n}$. Prove that $\varphi$ gives an isomorphism of $\mathbb{F}_{p^n}$ to itself (such an isomorphism is called an \emph{automorphism}). Prove that $\varphi^n$ is the identity map and that no lower power of $\varphi$ is the identity.
+\subsubsection{Answer}
+\begin{proof}
+By Proposition 35 the Frobenius map is an injective homomorphism of fields. Thus, for a finite field, it is also surjective and an isomorphism, automorphism. We have $\varphi^n(x)= (x^p)^n$ since the multiplicative group is of order $p^n-1$, $x^{(p^n-1)}=1$ and $\varphi^n(x)$ is the identity map. However, if $\varphi^l$ for $l<n$ were the identity then we would have $x^{(l-1)}=1$ for $l<n$ a contradiction.
+\end{proof}
+
+
+\subsection{Problem 11}
+\subsubsection{Question}
+Let $\varphi$ denote the Frobenius map $x \mapsto x^p$ on the finite field $\mathbb{F}_{p^n}$ as in the previous exercise. Determine the rational canonical form of $\mathbb{F}_{p^n}$for $\varphi$ considered as an $\mathbb{F}_{p^n}$-linear transformation of the $n$-dimensional $\mathbb{F}_p$-vector space $\mathbb{F}_{p^n}$.
+\subsubsection{Answer}
+By Artin's Lemma we see that $x^n-1$ is the minimal polynomial of this transformation. Therefore, it is also the characteristic polynomial. This completely determines the rational canonical form.
+
+\subsection{Problem 12}
+\subsubsection{Question}
+Let $\varphi$ denote the Frobenius map $x \mapsto x^p$ on the finite field $\mathbb{F}_{p^n}$ as in the previous exercise. Determine the Jordan canonical form (over a field containing all the eigenvalues) for $\varphi$ considered as an $\mathbb{F}_p$ linear transformation of the $n$-dimensional $\mathbb{F}_p$-vector space $\mathbb{F}_{p^n}$.
+\subsubsection{Answer}
+As in the previous exercise we know that $x^n-1$ is both the characteristic and minimal polynomial. Since we assume that we are in a field which contains all the eigenvalues the JCF is completely determined by this.
+
+\end{document}

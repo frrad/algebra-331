@@ -1,0 +1,166 @@
+\documentclass[12pt]{article}
+\setlength\headheight{14.5pt}
+\title{Homework}
+\author{Frederick Robinson}
+\date{10 February 2010}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{setspace}
+\doublespacing
+\pagestyle{fancyplain}
+
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 331: Algebra}
+
+   \maketitle
+
+\setcounter{tocdepth}{2} 
+
+\tableofcontents
+
+\section{Chapter 11 Section 1}
+\subsection{Problem 1}
+
+\subsubsection{Question}
+Let $V=\mathbb{R}^n$ and let $(a_1,a_2,\dots,a_n)$ be a fixed vector in $V$. Prove that the collection of elements $(x_1,x_2,\dots,x_n)$ of $V$ with $a_1x_1+a_2x_2+\cdots+a_nx_n = 0$ is a subspace of $V$. Determine the dimension of this subspace and find a basis.
+\subsubsection{Answer}
+This is just the set of all vectors orthogonal to $V$. This subspace is an $(n-1)$-dimensional hyperplane with normal vector $V$.
+
+Let $x$ and $y$ be vectors which satisfy this equation. Their sum also satisfies the equation by associativity, commutativity, that is, if $x=(x_1,x_2,\dots,x_n)$ and $y=(y_1,y_2,\dots,y_n)$ with $a_1x_1+a_2x_2+\cdots+a_nx_n = 0 = a_1y_1+a_2y_2+\cdots+a_ny_n $ then for $x + y$ we get
+\[a_1(x_1 + y_2) + a_2 (x_2 +y_2) + \dots + a_n(x_n + y_n)\]
+\[= a_1x_1+a_2x_2+\cdots+a_nx_n  + a_1y_1+a_2y_2+\cdots+a_ny_n = 0+0 =0.\]
+Moreover the set of such vectors is closed under scalar multiplication since if $x$ satisfies $a_1x_1+a_2x_2+\cdots+a_nx_n = 0$ then $c x$ has 
+\[ ca_1x_1+ca_2x_2+\cdots+ca_nx_n=c(a_1x_1+a_2x_2+\cdots+a_nx_n) = 0\]
+
+There exists a linear isomorphism of $V$ which sends $a$ to $(1,0,0,\dots,0)$ call this isomorphism $\varphi$. In the image of $V$ under $\varphi$ there exists an $(n-1)$-dimensional basis which spans the subspace defined by the above relation. Namely this is just the set of all the standard basis vectors besides the first one.
+
+Now, observe that since the above relation is linear, the preimage of this basis is also an $(n-1)$-dimensional basis for a set of vectors satisfying the relation before applying $\varphi$. Thus, we have constructed a basis for this subspace as desired.
+\subsection{Problem 3}
+
+\subsubsection{Question}
+Let $\varphi$ be the linear transformation $\varphi: \mathbb{R}^4 \to \mathbb{R}^1$ such that 
+\[\begin{array}{ll}
+\varphi((1,0,0,1))=1 & \varphi((1,-1,0,0))=0\\
+\varphi((1,-1,1,0))=1 & \varphi((1,-1,1,-1))=0
+\end{array}\]
+Determine $\varphi((a,b,c,d))$
+\subsubsection{Answer}
+Observe that we can write an arbitrary vector $(a,b,c,d)$ as $a(1,0,0,0)+b(0,1,0,0)+c(0,0,1,0)+d(0,0,0,1)$. Furthermore we have 
+\[1(1,0,0,1)+ 0(1,-1,0,0) -1(1,-1,1,0)+ 1(1,-1,1,-1) = (1,0,0,0)\]
+\[1(1,0,0,1)-1(1,-1,0,0) -1(1,-1,1,0)+ 1(1,-1,1,-1) = (0,1,0,0)\]
+\[0(1,0,0,1)-1(1,-1,0,0) +1(1,-1,1,0)+ 0(1,-1,1,-1) = (0,0,1,0)\]
+\[0(1,0,0,1)+ 0(1,-1,0,0) +1(1,-1,1,0)- 1(1,-1,1,-1) = (0,0,0,1)\]
+Thus, we can write by linearity
+\[(a,b,c,d) = a(1,0,0,0)+b(0,1,0,0)+c(0,0,1,0)+d(0,0,0,1) \]
+\[ \Rightarrow (a+b)(1,0,0,1)+ (-b-c)(1,-1,0,0) \]
+\[+(-a-b+c+d)(1,-1,1,0)+ (a+b-d)(1,-1,1,-1) = (a,b,c,d)\]
+
+So, we can write
+\[\varphi((a,b,c,d)) = \varphi((a+b)(1,0,0,1)+ (-b-c)(1,-1,0,0) \]
+\[+(-a-b+c+d)(1,-1,1,0)+ (a+b-d)(1,-1,1,-1)) \]
+\[ = (a+b)\varphi((1,0,0,1))+ (-b-c)\varphi((1,-1,0,0)) \]
+\[+(-a-b+c+d)\varphi((1,-1,1,0))+ (a+b-d)\varphi((1,-1,1,-1)) \]
+\[ = (a+b)1+ (-b-c)0 +(-a-b+c+d)1+ (a+b-d)0 \]
+\[ = (a+b) +(-a-b+c+d) = c+d\]
+\subsection{Problem 4}
+
+\subsubsection{Question}
+Prove that the space of real-valued functions on the closed interval $[a,b]$ is an infinite dimensional vector space over $\mathbb{R}$, where $a<b$.
+\subsubsection{Answer}
+Suppose towards a contradiction that the space of real-valued functions on $[a,b]$ is a finite dimensional vector space. Then it has some finite dimension say $n$. However this is a contradiction since the subspace of this vector space given by functions which are zero everywhere but the points of form 
+\[ a + \frac{m(b-a)}{n} \]
+ for some $m \in \mathbb{N}$ has dimension $n+1$. In particular it is spanned by the basis  given by functions of the form 
+ \[f(x) = \left\{ \begin{array}{ll} 1 &\displaystyle x = a + \frac{m(b-a)}{n} \\ \\ 0 & \mathrm{otherwise} \end{array}\right.\]
+
+
+\subsection{Problem 6}
+
+\subsubsection{Question}
+Let $V$ be a vector space of finite dimension. If $\varphi$ is any linear transformation from $V$ to $V$ prove there is an integer $m$ such that the intersection of the image of $\varphi^m$ and the kernel of $\varphi^m$ is $\{0\}$.
+\subsubsection{Answer}
+Since both the image and the kernel of a given linear transformation are subspaces their intersection is also a subspace. Moreover if $V$ is of finite dimension so much be any subspace of $V$.
+
+Since the dimension of the image together with the dimension of the kernel is the dimension of the original space $V$ we know that the dimension of the intersection is at most the maximum of these. However, since we will show that we can always increase the dimension of the kernel by increasing the power of $\varphi$ whenever there is nonzero intersection between the kernel and Image it must be that there exists some $m$ such that there is zero intersection. 
+
+If the intersection of the kernel of $\varphi^n$ and the image of $\varphi^n$ is just $\{0\}$ then we are done so assume this is not the case. Then, 
+\[|Ker(\varphi^n)| < | Ker(\varphi^{2 n})|  \]
+since given any element $x\neq 0$ which is both in the kernel and the image of $\varphi^n$ there is a  corresponding $y\neq 0$ with $\varphi(y)=x$ which has $\varphi^n(\varphi^n(y)) = \varphi^{2n}(y) = 0 $. In particular we get $\varphi^n(\varphi^n(x)) = \varphi^{n}(x) =0 $ . So by linearity there is a subspace of such $y$ which are mapped to 0 by $\varphi^{2n}$ but not by $\varphi$.
+
+As we have already established that the dimension of this intersection is well defined and finite, we can always increase the dimension of the kernel by increasing the power of $\varphi$, and the sum of the dimension of the Image together with the dimension of the kernel is the dimension of $V$ we are guaranteed to have some power of $\varphi$ for which there is zero interesection between the image and the kernel. Either the doubling process above will be unable to continue at some point because there will be zero intersection between the image and the kernel as desired, or it will eventually result in $|Ker(\varphi^m)|=Dim(V) \Rightarrow |Im(\varphi^m)|= 0 \Rightarrow |Im(\varphi^m) \cap Ker(\varphi^m) | = 0$ as desired since, whenever the process can continue it results in an increased dimension of the Kernel.
+
+
+
+\subsection{Problem 7}
+
+\subsubsection{Question}
+Let $\varphi$ be a linear transformation from a vector space $V$ of dimension $n$ to itself that satisfies $\varphi^2=0$. Prove that the image of $\varphi$ is contained in the kernel of $\varphi$ and hence that the rank of $\varphi$ is at most $n/2$. 
+\subsubsection{Answer}
+Let $\varphi$ be a linear transformation with $\varphi^2=0$. Each $y$ in the image is in the kernel as well. For each $y$ in the image there is a corresponding $x$ such that $\varphi(x) = y$ and so each $y$ in the image is also in the kernel if and only if $\varphi(\varphi(x))= 0$ for any $x$. But this is just the same as saying $\varphi^2(x)=0$  for any $x$ and our function has this property.
+
+
+\subsection{Problem 9}
+
+\subsubsection{Question}
+Let $V$ be a vector space over $F$ and let $\varphi$ be a linear transformation of the vector space $V$ to itself. Suppose for $i = 1,2,\dots,k$ that $v_i \in V$ is an eigenvector for $\varphi$ with eigenvalue $\lambda_i \in F$ (cf. the preceding exercise) and that all the eigenvalues $\lambda_i$ are distinct. Prove that $v_1, v_2, \dots, v_k$ are linearly independent. [Use induction on $k$: write a linear dependence relation among the $v_i$ and apply $\varphi$ to get another linear dependence relation among the $v_i$ involving the eigenvalues -- now subtract a suitable multiple of the first linear relation to get a linear dependence relation on fewer elements.] Conclude that any linear transformation on an $n$-dimensional vector space has at most $n$ distinct eigenvalues.
+\subsubsection{Answer}
+Suppose that there exist some set of $a_1,a_2,\dots,a_i$ not all zero such that
+\[a_1v_1+ a_2v_2 + \dots + a_iv_i=0\]
+applying $\varphi$ we get 
+\[\varphi(a_1v_1+ a_2v_2 + \dots + a_iv_i)=a_1\lambda_1 v_1 + a_2 \lambda_2 v_2 + \dots + a_i\lambda_i v_i =0\]
+and by subtracting $\lambda_i$ times the last relation we see that
+\[a_1(\lambda_1 - \lambda_i) v_1 + a_2 (\lambda_2-\lambda_i) v_2 + \dots + a_{i-1} (\lambda_{i-1} - \lambda_i) v_{i-1} = 0\]
+Since the eigenvalues are distinct and we assume that $v_i$ is nonzero it follows that each of the new constants in the above linear dependence relation are nonzero. Each $\lambda_j - \lambda_i$ is nonzero by distinctness of the eigenvalues and if every $a_j$ were zero it would imply that in the above dependence relation the only nonzero $a_j$ was $a_i$ and therefore that $v_i = 0$ violating our nonzero assumption on the eigenvectors.
+
+However, if we assume that the eigenvectors are linearly dependent we have 
+\[a_1 v_1 + a_2 v_2  + \dots +a_k v_k=0\]
+and by induction on $k$ we have that $c v_1=0$ for some nonzero constant $c$. This is a contradiction since each $v$ was assumed to be nonzero.
+
+Now that we have established that eigenvectors must be linearly independent it is clear that there may be at most $n$ distinct eigenvalues for a linear transformation on an $n$-dimensional space since in particular a set of linearly independent vectors in $n$-dimensional space may have at most $n$ vectors.
+
+
+\section{Chapter 12 Section 1}
+\subsection{Problem 7}
+\subsubsection{Question}
+Let $R$ be any ring, let $A_1, A_2, \dots, A_m$ be $R$-modules and let $B_i$ be a submodule of $A_i$, $1\leq i \leq m$. Prove that 
+\[ (A_1 \oplus A_2 \oplus \cdots \oplus A_m ) / (B_1 \oplus B_2 \oplus \cdots \oplus B_m) \cong (A_1/B_1) \oplus (A_2 / B_2) \oplus \cdots \oplus (A_m / B_m)\]
+\subsubsection{Answer}
+\[ (A_1 \oplus A_2 \oplus \cdots \oplus A_m ) / (B_1 \oplus B_2 \oplus \cdots \oplus B_m) \cong (A_1/B_1) \oplus (A_2 / B_2) \oplus \cdots \oplus (A_m / B_m)\]
+
+
+I claim that the mapping $\varphi$ which takes an equivalence class mod $B_1 \oplus B_2 \oplus \cdots \oplus B_n$ defined by some $(a_1,a_2,\dots,a_n) \in A_1\oplus A_2 \oplus \cdots \oplus A_n$ to the direct sum of the equivalence classes of $B_i$ defined by $a_i \in A_i /  B_i$ is an isomorphism of modules.
+
+First I will show that it is an isomorphism then I will show that it is a module homomorphism. The map $\varphi$ is injective. Take two elements $x, y \in (A_1 \oplus A_2 \oplus \cdots \oplus A_m )$ defined as $(x_1,x_2, \dots, x_n)$ and $(y_1,y_2,\dots,y_n)$.  They are taken by $\varphi$ to distinct elements in the codomain since $B_i \subset A_i$ ensures that both quotient maps take two elements in $A_1 \oplus A_2 \oplus \cdots \oplus A_m $ to the same equivalence class if and only if they are in the same equivalence class. That is
+\[x_1/B_1\oplus x_2 /B_2 \oplus \cdots \oplus x_n/B_n = y_1 / B_1 \oplus y_2 / B_2 \oplus \cdots \oplus y_n/ B_n\]
+\[\Leftrightarrow (x_1,x_2,\dots,x_n)/(B_1\oplus B_2\oplus \cdots \oplus B_n)=(y_1,y_2,\dots,y_n)/(B_1\oplus B_2 \oplus \cdots \oplus B_n) \]
+
+
+Moreover the map is surjective. Given an element of the codomain it has a representative of the form $(a_1,a_2, \dots, a_m)$. This particular representative is just the image of the same representative $(a_1,a_2, \dots, a_m)$ in the domain under $\varphi$.
+
+It remains only to check that this bijection is a homomorphism, but given $x, y \in (A_1 \oplus A_2 \oplus \cdots \oplus A_n)$ and $s, t \in R$ we have $\varphi(s x + r y) = \varphi(s x_1 + r y_1, s x_2 + t y_2, \dots , s x_n + t y_n) = \varphi(s x_1, s x_2,\dots, s x_n)+ \varphi(t y_1, t y_2, \dots, t y_n) = s \varphi(x) + t\varphi(y)$ as claimed since we note as above that
+\[x_1/B_1\oplus x_2 /B_2 \oplus \cdots \oplus x_n/B_n = y_1 / B_1 \oplus y_2 / B_2 \oplus \cdots \oplus y_n/ B_n\]
+\[\Leftrightarrow (x_1,x_2,\dots,x_n)/(B_1\oplus B_2\oplus \cdots \oplus B_n)=(y_1,y_2,\dots,y_n)/(B_1\oplus B_2 \oplus \cdots \oplus B_n).\]
+
+\subsection{Problem 11}
+
+\subsubsection{Question}
+Let $R$ be a P.I.D., let $a$ be a nonzero element of $R$ and let $M = R / (a)$. For any prime $p$ of $R$ prove that
+\[p^{k-1}M / p^k M \cong \left\{ \begin{array}{ll} 
+R/(p) & \mathrm{if\ }k \leq n\\
+0& \mathrm{if\ }k>n,
+ \end{array}\right. \]
+ where $n$ is the power of $p$ dividing $a$ in $R$.
+\subsubsection{Answer}
+Consider the ideals in $R$ given by $I = (p^{k-1},a)$ and $J=(p^k,a)$ generated by $a$ together with the powers of $p$. Now restrict the quotient map $R \to R/(a) = M$ to $I$ yield a new function say $f:I \to p^{k-1}M$. 
+
+Now, by the isomorphism theorems, $I/J \cong p^{k-1} M /p^k M$ as $R$-Modules. Let $\sigma = gcd\{p^{k-1},a\}$ and $l = \gcd\{p^k,a\}$. We have $I = \sigma R$ and $J = l R$ and by the isomorphism theorem applied to the surjective map from $R \to \sigma R$ which takes $1 \to \sigma$, we get $I / J = R/(l/\sigma)$. Further note that $l /  \sigma$ is $p$ if $k \leq n$ and $1$ if $k >n$. 
+
+So we conclude that 
+\[p^{k-1}M / p^k M \cong \left\{ \begin{array}{ll} 
+R/(p) & \mathrm{if\ }k \leq n\\
+0& \mathrm{if\ }k>n
+ \end{array}\right. \]
+ as desired.
+\end{document}

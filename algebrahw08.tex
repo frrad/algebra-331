@@ -1,0 +1,214 @@
+\documentclass[12pt]{article}
+\setlength\headheight{14.5pt}
+\title{Homework}
+\author{Frederick Robinson}
+\date{14 February 2010}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{setspace}
+\doublespacing
+\pagestyle{fancyplain}
+
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 331: Algebra}
+
+   \maketitle
+
+\setcounter{tocdepth}{2} 
+
+\tableofcontents
+
+\section{Chapter 10 Section 1}
+\subsection{Problem 3}
+
+\subsubsection{Question}
+Assume that $rm = 0$ for some $ r \in R$ and some $m \in M$ wiht $ m \neq 0$. Prove that $r$ does not have a left inverse (i.e., there is not $ s \in R$ such that $s r =1$).
+\subsubsection{Answer}
+\begin{proof}
+Assume towards a contradiction that there exists some $s \in R $ such that $s r =1$. Then we have 
+\[0 = s (r m) =(s r ) m = m \]
+Contradiction.\end{proof}
+
+\subsection{Problem 5}
+
+\subsubsection{Question}
+For any left ideal $I$ of $R$ define 
+\[ I M = \{ \sum_{\mathrm{finite}} a_i m_i \ |\ a_i \in I, m_i \in M \}  \]
+to be the collection of all finite sums of elements of the form $am$ where $a \in I$ and $m \in M$. Prove that $IM$ is a submodule of $M$.
+\subsubsection{Answer}
+\begin{proof}
+First we note that the set $I M $ must be nonempty for since $I$ is nonempty it contains some element say $x$ and $M$ is nonempty it contains some $m$. Thus $x m \in I M$
+ 
+Now we must show that 
+\[m + r n  \in I M\  \forall m,n \in I M , \forall r \in R \]
+Let $m,n \in I M$, $r \in R$. Then we have 
+\[m + r n = \sum_{\mathrm{finite}} a_i m_i + r \sum_{\mathrm{finite}} a_i n_i\]
+but $r$ distributes over the sum and any product $r a_i \in I$. Thus we may just rewrite as 
+\[m + r n = \sum_{\mathrm{finite}} a_i m_i +  \sum_{\mathrm{finite}} b_i n_i\] for $a_i, b_i \in I$. This is just a finite sum of elements of the form $am$ where $a \in I$ and $m \in M$ though since two finite sets taken together is just a finite set. 
+
+Hence $I M$ is a submodules of $M$ as claimed.
+\end{proof}
+
+\subsection{Problem 8}
+
+\subsubsection{Question}
+An element $m$ of the $R$-module $M$ is called a \emph{torsion element} if $rm =0$ for some nonzero element $r \in R$. The set of torsion elements is denoted
+\[\mathrm{Tor}(M) = \{m \in M \ | \ rm =0 \mathrm{\ for\ some\ nonzero\ } r \in R\}.\]
+\begin{enumerate}
+\item Prove that if $R$ is an integral domain then Tor($M$) is a submodule of $M$ (called the \emph{torsion} submodule of $M$).
+\item Give an example of a ring $R$ and an $R$-module $M$ such that Tor($M$) is not a submodule. [Consider the torsion elements in the $R$-module $R$.]
+\item If $R$ has zero divisors show that every nonzero $R$-module has nonzero torsion elements.
+\end{enumerate}
+\subsubsection{Answer}
+\begin{enumerate}
+\item \begin{proof} Tor($M$) is nonempty since in particular it contains $0$. ($R$ is an integral domain $\Rightarrow$ $1 \in R$ $\Rightarrow$ $ 1 \cdot 0 = 0$ $\Rightarrow$ $0 \in \mathrm{Tor}(M) $).
+
+ Moreover, given $m, n \in  \mathrm{Tor}(M) $, $x \in R $ say that $x' m =0= x'' n$.  We therefore have $x'x''(m + x n)=x'x''m+x x'x'' n= x''(x'm)+ x x' (x'' n) =0$. So we have shown the submodule criterion and  $\mathrm{Tor}(M) $ must be a submodule as claimed.
+\end{proof}
+\item Consider the ring given by the set of all $2 \times 2$ matrices with entries in $\mathbb{R}$ and the module given the ring operating on elements from same. and say
+\[A = \left[\begin{array}{lr} 1 & 0 \\0&0 \end{array} \right]  \quad B = \left[\begin{array}{lr} 0 & 0 \\0&1 \end{array} \right] .  \]
+We have $A, B \in \mathrm{Tor}(M) $ since $AB=BA=0$ yet since $A+B=I$ we know that there is no nonzero $r \in R $ such that $r(A+B)=0$. Thus $\mathrm{Tor}(M) $ is not a submodule.
+\item Let $a b = 0$ for $a\neq0$  and $b \neq 0$. Now fix some $m\neq 0  \in M$. If $b m = 0$ then $m$ is a nonzero torsion element and we're done. If not then $a ( b m ) =(a b) m  = 0 m = 0$ so $b m $ is a nonzero torsion element.
+\end{enumerate}
+
+\subsection{Problem 18}
+
+\subsubsection{Question}
+Let $F = \mathbb{R}$, let $V = \mathbb{R}^2$ and let $T$ be the linear transformation from $V$ to $V$ which is rotation clockwise about the origin by $\pi / 2$ radians. Show that $V$ and $0$  are the only $F[x]$-submodules for this $T$.
+
+\subsubsection{Answer}\label{general}
+I will begin by establishing some facts that are true in general and will be used in this and the next 2 problems.
+
+We know from the book that  $F[x]$-submodules  are subspaces in this context, and moreover that  $F[x]$-submodules are precisely those subspaces which are mapped into themselves by $T$. We will exploit these observations and treat the next problems linear-algebraically.
+
+Moreover, we note that in general a linear transformation $T: \mathbb{R}^2 \to \mathbb{R}^2$ takes $0 \to 0$ and $\mathbb{R}^2 \to \mathbb{R}^2$. Thus these are both  $F[x]$-submodules since they are subspaces. 
+
+Furthermore, if $\vec{v}$ is a vector such that $T(\vec{v}) = c \vec{v}$ then $\mathrm{Span}(\vec{v})$ is an  $F[x]$-submodule as any element of $\mathrm{Span}(\vec{v})$ is just $c \vec{v}$ (and every such vector is an element of $\mathrm{Span}(\vec{v})$) and by linearity we get $T(c \vec{v})= c T(\vec{v})$. Conversely if  $\vec{v}$ is a vector such that $T(\vec{v}) \neq c \vec{v}$ then $\mathrm{Span}(\vec{v})$ is not an  $F[x]$-submodule.
+
+\begin{proof}We consider subspaces spanned by one vector. Thus, assume towards a contradiction that there exists some nonzero $\vec{v} \in \mathbb{R}^2 $ such that $T(\vec{v})= c \vec{v}$. However this imples
+\[\left[ \begin{array} {lr}0 & 1\\-1 &0 \end{array} \right] \left[ \begin{array} {lr}a\\ b \end{array} \right] = c \left[ \begin{array} {lr}a \\b \end{array} \right] \Rightarrow  \left[ \begin{array} {lr}b \\-a \end{array} \right]  = c \left[ \begin{array} {lr}a \\b \end{array} \right]   \]
+So $b/a = -a/b = c$. Contradiction.
+\end{proof}
+\subsection{Problem 19}
+
+\subsubsection{Question}
+Let $F = \mathbb{R}$, let $V = \mathbb{R}^2$ and let $T$ be the linear transformation from $V$ to $V$ which is projection onto the $y$-axis. Show that $V$, $0$, the $x$-axis and the $y$-axis are the only $F[x]$-submodules for this $T$.
+
+\subsubsection{Answer}
+
+\begin{proof}We consider subspaces spanned by one vector. (See previous problem for justification) We seek $\vec{v} = (a,b) \neq \vec{0}$ such that, 
+\[\left[ \begin{array} {lr}0 & 1\\0 &0 \end{array} \right] \left[ \begin{array} {lr}a\\ b \end{array} \right] = c \left[ \begin{array} {lr}a \\b \end{array} \right] \Rightarrow  \left[ \begin{array} {lr}b \\0 \end{array} \right]  = c \left[ \begin{array} {lr}a \\b \end{array} \right]   \]
+So $b = ca$ and $c b = 0$ for some $c$. This is only the case for vectors of the form $(a,0)$ or $(0,b)$. Hence the $x$-axis and the $y$-axis are  $F[x]$-submodules as claimed.
+\end{proof}
+
+\subsection{Problem 20}
+
+\subsubsection{Question}
+Let $F = \mathbb{R}$, let $V = \mathbb{R}^2$ and let $T$ be the linear transformation from $V$ to $V$ which is rotation clockwise about the origin by $\pi $ radians. Show that \emph{every} subspace of $V$ is an $F[x]$-submodules for this $T$.
+
+
+\begin{proof}We consider subspaces spanned by one vector. (See \ref{general} for justification) We seek $\vec{v} = (a,b) \neq \vec{0}$ such that, 
+\[\left[ \begin{array} {lr}-1 & 0\\0 &-1 \end{array} \right] \left[ \begin{array} {lr}a\\ b \end{array} \right] = c \left[ \begin{array} {lr}a \\b \end{array} \right] \Rightarrow  \left[ \begin{array} {lr}-a \\-b \end{array} \right]  = c \left[ \begin{array} {lr}a \\b \end{array} \right]   \]
+So $-a = ca$ and $-b = c b$ for some $c$. This is the case for all $a,b $ however (take $c= -1$) so all one dimensional subspaces are   $F[x]$-submodules as claimed.\end{proof}
+
+\subsubsection{Answer}
+
+\section{Chapter 10 Section 2}
+\subsection{Problem 1}
+
+\subsubsection{Question}
+Use the submodule criterion to show that kernels and images of $R$-module homomorphisms are submodules.
+\subsubsection{Answer}
+\begin{proof} 
+Say $\varphi: M \to M $ is a homomorphism of $R$-modules. Then take $x, y  \in \mathrm{ker}(\varphi)$ and $r \in R$. $\varphi(x) = \varphi(y) = 0$ by definition. Thus we have $\varphi(x+ r y)= \varphi(x)+ r \varphi(y) = 0+ r 0 = 0 $. Therefore the kernel of $\varphi$ is a submodule as claimed.
+\end{proof}
+\begin{proof} Let $x, y  \in \mathrm{Img}(\varphi)$ and $r \in R$. Then there exist corresponding $x', y'$ such that $\varphi(x')=x$ and $\varphi(y') = y$. So, we get $\varphi(x'+r y')= \varphi(x') + r\varphi(y') = x + r y \in \mathrm{Img}(\varphi)$ and the image of $\varphi$ is a submodule as claimed.
+\end{proof}
+
+
+\subsection{Problem 3}
+
+\subsubsection{Question}
+Give an explicit example of a map from one $R$-module to another which is a group homomorphism but not an $R$-module homomorphism.
+\subsubsection{Answer}
+Consider the matrix module over $\mathrm{GL}_2(\mathbb{R})$ with same as the ring. Moreover let 
+\[\varphi(x)= \left[ \begin{array}{lr} 1&2\\3&4\end{array}\right] x. \]
+That such an mapping is a group homomorphism has been proven previously. However, $\varphi(r x ) \neq r \varphi (x) $ since in particular we have
+\[\varphi[
+\left[
+\begin{array}{lr}
+5&6\\7&8
+\end{array}
+\right]
+\left[
+\begin{array}{lr}
+5&6\\7&8
+\end{array}
+\right]
+]=\left[
+\begin{array}{cc}
+ 249 & 290 \\
+ 565 & 658
+\end{array}
+\right] \neq 
+\left[
+\begin{array}{cc}
+ 353 & 410 \\
+ 477 & 554
+\end{array}
+\right]
+=
+\left[
+\begin{array}{lr}
+5&6\\7&8
+\end{array}
+\right]
+ \varphi[
+\left[
+\begin{array}{lr}
+5&6\\7&8
+\end{array}
+\right]
+]
+\]
+
+\subsection{Problem 7}
+
+\subsubsection{Question}
+Let $z$ be a fixed element of the center of $R$. Prove that the map $m \mapsto z m$ is an $R$-module homomorphism from $M$ to itself. Show that for a commutative ring $R$ the map from $R$ to $\mathrm{End}_R (M)$ given by $r \mapsto r I $ is a ring homomorphism (where $I$ is the identity endomorphism).
+\subsubsection{Answer}
+\begin{proof}
+We fix $s \in R $ and $x,y \in M$. No we verify  $\varphi(x+y) = r (x+y) = r x + r y= \varphi(x)+ \varphi(y)  $ and $\varphi( s x ) = r s x = s r x = s \varphi(x)$ as desired.
+\end{proof}
+
+\begin{proof}
+The mapping $\varphi(x) : R \to \mathrm{End}_R (M)$ given by $r \mapsto r I $ is a well defined by the above proof. Now let $x,y \in R$ and note that $\varphi(x + y) = (x+y)I  = xI + y I = \varphi(x)+ \varphi(y)$ and $\varphi(x y) =(x y) I = (y I) x = x \varphi(y)$ by commutativity.
+\end{proof}
+
+\subsection{Problem 8}
+
+\subsubsection{Question}
+Let $\varphi : M \to N$ be an $R$-module homomorphism. Prove that $\varphi(\mathrm{Tor}(M)) \subseteq \mathrm{Tor}(N)$ (cf. Exercise 8 in Section 1).
+
+\subsubsection{Answer}
+Let $m \in \mathrm{Tor}(N)$. Then by definition there exists some nonzero $r \in R $ such that $ r m =0$. Hence $0 = \varphi(0) = \varphi(r m ) = r  \varphi(m)$ and $\varphi(m) \in  \mathrm{Tor}(N)$. This implies that $\varphi(\mathrm{Tor}(M)) \subseteq \mathrm{Tor}(N)$ as claimed.
+
+
+\subsection{Problem 10}
+
+\subsubsection{Question}
+Let $R$ be a commutative ring. Prove that $\mathrm{Hom}_R(R,R)$ and $R$ are isomorphic as rings.
+\subsubsection{Answer}
+I claim that the mapping $\varphi:  \mathrm{Hom}_R(R,R) \to R$ defined by $\varphi(x) = \psi(1) $ for $\psi$ a homomorphism  is an isomorphism of rings.
+\begin{proof}
+We first show that it is a homomorphism  of rings. Towards this let $x, y$ in $\mathrm{Hom}_R(R,R)$. Now observe that $\varphi(x + y) = (x+y)(1) = x(1) + y(1)=\varphi(x) + \varphi(y)$ and that furthermore $\varphi(x y) = (xy)(1) =   x(1) y(1) = \varphi(x)\varphi(y) $. 
+
+Now it remains to show that this homomorphism is bijective. First we will show injectivity. Assume that $\varphi(x)=\varphi(y) \Rightarrow x(1) = y(1)$ but since for any $z \in R $ we have $1 z = z$ we just get $x(z)=x(z 1) = z x(1) = z y(1) = y(z)$ and therefore $x = y$ by definition.
+
+Now surjectivity. Assume towards a contradiction that there exists $r \in R $ such that for no $x$ do we have $\varphi(x) = r$. This is a contradiction since we can define a homomorphism by $\psi(x) = r x $ (see a previous exercise) and this homomorphism surely has $\psi(1) = r$. Contradiction.
+\end{proof}
+
+\end{document}
